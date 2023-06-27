@@ -14,8 +14,8 @@ export PS1="\e[0;31m\u\e[m@\e[0;94m\h:\e[m \e[0;32m\W\e[m 🦈\e[0;91m\$(parse_g
 ```
 ### If bugs apper in try this
 ```
-parse_git_branch() {
-git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/_ \(._\)/(\1)/'
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-export PS1="\e[0;31m\u\e[m@\e[0;94m\h:\e[m \e[0;32m\W\e[m 🦈\e[0;91m\$(parse_git_branch)\e[m\e[0;36m>\e[m "
+export PS1="\[\e[0;31m\]\u\[\e[m\]@\[\e[0;94m\]\h\[\e[m\]: \[\e[0;32m\]\W\[\e[m\] 🦈\[\e[0;91m\]\$(git_branch)\[\e[m\]\[\e[0;36m\]> \[\e[m\]"
 ```
